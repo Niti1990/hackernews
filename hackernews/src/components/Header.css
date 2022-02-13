@@ -1,0 +1,7 @@
+.header {
+    display: flex;
+    align-items: center;
+}
+h1 {
+    border: 5px solid red;
+}
