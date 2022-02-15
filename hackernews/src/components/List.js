@@ -3,42 +3,47 @@ import SearchIcon from '@mui/icons-material/Search';
 
 //import {Link} from 'react-router-dom';
 function List({ hits }) {
+	const [filterhits, setFilterhits] = useState([]);
 
-  const [filterhits, setFilterhits] = useState([]);
+	const handleFilter = (event) => {
+		const searchWord = event.target.value;
+		const newFilter = hits.filter((value) => {
+			return value.title.toLowerCase().includes(searchWord.toLowerCase());
+		});
 
-   const handleFilter =(event) =>{
-       const searchWord =event.target.value
-       const newFilter = hits.filter((value) => { 
-     return value.title.toLowerCase().includes(searchWord.toLowerCase());
-});
- 
- setFilterhits(newFilter);
-   };
+		setFilterhits(newFilter);
+	};
 
-    //const hits = props.hits;
-    //const Listitems = hits.map((hit) => {
-    //    <li>{hit}</li>;
-    return (
-
-        <div>
-         <input className='searchInput' type='text' placeholder='Enter a Book Name....' onChange={handleFilter} /> 
-        <div className='SearchIcon'>
-            <SearchIcon />
-        </div>
-        { filterhits.length != 0 && (
-            <ul >
-            
-                {filterhits.map((hit, index) => {
-                    console.log(hit);
-                    return <li //className="hitsResult"
-                     key={index}>{hit.title}
-                     </li>;
-                })}
-                
-            </ul>
-)}
-        </div>
-    );
+	//const hits = props.hits;
+	//const Listitems = hits.map((hit) => {
+	//    <li>{hit}</li>;
+	return (
+		<div>
+			<input
+				className='searchInput'
+				type='text'
+				placeholder='Enter a Book Name....'
+				onChange={handleFilter}
+			/>
+			<div className='SearchIcon'>
+				<SearchIcon />
+			</div>
+			{filterhits.length !== 0 && (
+				<ul>
+					{filterhits.map((hit, index) => {
+						console.log(hit);
+						return (
+							<li //className="hitsResult"
+								key={index}
+							>
+								{hit.title}
+							</li>
+						);
+					})}
+				</ul>
+			)}
+		</div>
+	);
 }
 
 export default List;
