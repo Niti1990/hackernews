@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import './components/Header.css';
 import List from './components/List';
+import './components/List.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
         <div className='App'>
             <header className='App-header'>
                 <Header />
-                <List hits={news} />
+                <List hits={news}  />
+
             </header>
         </div>
     );
