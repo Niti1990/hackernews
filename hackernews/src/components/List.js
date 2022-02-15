@@ -25,7 +25,7 @@ function List({ hits }) {
         <div className='SearchIcon'>
             <SearchIcon />
         </div>
-        { filterhits.length != 0 && (
+        { filterhits.length !== 0 && (
             <ul >
             
                 {filterhits.map((hit, index) => {
