@@ -21,16 +21,22 @@ function List({ hits }) {
     return (
 
         <div>
-         <input className='searchInput' type='text' placeholder='Enter a Book Name....' onChange={handleFilter} /> 
-        <div className='SearchIcon'>
-            <SearchIcon />
-        </div>
+         <div className='main-nav'>
+           <h3 className='header'>News</h3>
+                <input className='searchInput' type='text' placeholder=' Enter ' onChange={ handleFilter } /> 
+                  <div className='SearchIcon'>
+                    <SearchIcon />
+                   </div>
+          </div>
+            
+      
+            
         { filterhits.length !== 0 && (
             <ul >
             
                 {filterhits.map((hit, index) => {
                     console.log(hit);
-                    return <li //className="hitsResult"
+                    return <li className="hitsResult"
                      key={index}>{hit.title}
                      </li>;
                 })}

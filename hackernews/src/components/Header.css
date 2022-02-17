@@ -2,6 +2,9 @@
 h1 {
 border: 5px solid red;
 }
+
+
+
 .nav{
     display:inline-flex;
     justify-content:space-around;
@@ -9,28 +12,3 @@ border: 5px solid red;
     border: 5px solid green;
   }
 
-.searchInput{
-/*   
-     width: 100%;
-    padding: 12px 20px;
-     margin: 2px 0; 
-    box-sizing: border-box; */
-  background-color: white;
-  border: 0;
-  border-radius: 2px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  font-size: 18px;
-  padding: 15px;
-  height: 30px;
-  width: 300px;
-}
-
-
-.SearchIcon{
-  height:60px;
-  width:50px;
-  background-color:red;
-  display:grid;
-  place-items: center;
-}
