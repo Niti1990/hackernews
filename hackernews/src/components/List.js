@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 
 //import {Link} from 'react-router-dom';
-function List({ hits }) {
+function List({ hits, submit }) {
 	const [filterhits, setFilterhits] = useState([]);
 
 	const handleFilter = (event) => {
@@ -13,6 +13,11 @@ function List({ hits }) {
 
 		setFilterhits(newFilter);
 	};
+	const handleOnSubmit = (event) => {
+		event.preventDefault();
+		const searchWord = event.target.value;
+		submit(searchWord);
+	};
 
 	//const hits = props.hits;
 	//const Listitems = hits.map((hit) => {
@@ -21,15 +26,18 @@ function List({ hits }) {
 		<div>
 			<div className='main-nav'>
 				<h3 className='header'>News</h3>
-				<input
-					className='searchInput'
-					type='text'
-					placeholder=' Enter '
-					onChange={handleFilter}
-				/>
-				<div className='SearchIcon'>
-					<SearchIcon />
-				</div>
+				<form onSubmit={handleOnSubmit}>
+					<input
+						className='searchInput'
+						type='text'
+						placeholder=' Enter '
+						onChange={handleFilter}
+					/>
+					<button type='submit'>Submit</button>
+					<div className='SearchIcon'>
+						<SearchIcon />
+					</div>
+				</form>
 			</div>
 
 			<div className='hitsItem'>
