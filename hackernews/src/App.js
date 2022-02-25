@@ -6,7 +6,8 @@ import './components/List.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-	const [news, setNews] = useState([]);
+	
+	 const [news, setNews] = useState([ ]);
 	//setSearchvalue to whatever is in the input field in List.js
 	const [searchValue, setSearchValue] = useState('react');
 	//console.log(news);
