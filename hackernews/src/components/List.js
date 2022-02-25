@@ -22,7 +22,7 @@ function List({ hits, handleSubmit }) {
 	//const hits = props.hits;
 	//const Listitems = hits.map((hit) => {
 	//    <li>{hit}</li>;
-
+	//Line:30 wrapping in Form the input field and button and calling  handleSubmit function
 	return (
 		<div>
 			<div className='main-nav'>
@@ -33,7 +33,7 @@ function List({ hits, handleSubmit }) {
 						type='text'
 						placeholder=' Enter '
 						name='searchbar'
-						// onChange={handleSubmit}
+						//onChange={handleSubmit}
 					/>
 					<button type='submit'>Submit</button>
 					<div className='SearchIcon'>
@@ -41,26 +41,14 @@ function List({ hits, handleSubmit }) {
 					</div>
 				</form>
 			</div>
-
 			<div className='hitsItem'>
-				{hits.length !== 0 && (
+				{hits.length !== 0 && ( //display the title from hits-object
 					<ul>
-						{hits.map((hit) => {
-							return <li>{hit.title}</li>;
+						{hits.map((hit, index) => {
+							return <li key={index}>{hit.title}</li>;
 						})}
 					</ul>
 				)}
-				{/* {filterhits.length !== 0 && (
-					<ul>
-						{filterhits.map((hit, index) => {
-							//console.log(hit);
-							return (
-								<li className='hitsResult' key={index}>
-									{hit.title}
-								</li>
-							);
-						})}
-					</ul> */}
 			</div>
 		</div>
 	);
