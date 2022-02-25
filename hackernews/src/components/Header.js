@@ -13,6 +13,7 @@ function Header() {
 				<h4>Show |</h4>
 				<h4>Jobs |</h4>
 				<h4>Submit</h4>
+				<h4>User</h4>
 			</nav>
 		</div>
 	);
