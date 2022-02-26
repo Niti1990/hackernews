@@ -6,21 +6,24 @@ import './components/List.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
+	// fetching the initial API from given link
+	const [news, setNews] = useState([]);
+  //setSearchvalue to whatever is in the input field in List.js
+	const [ searchValue, setSearchValue ] = useState('');
 	
-	 const [news, setNews] = useState([ ]);
-	//setSearchvalue to whatever is in the input field in List.js
-	const [searchValue, setSearchValue] = useState('react');
 	//console.log(news);
+	// loading state 
+
 	useEffect(() => {
 		const fetchNews = async () => {
 			try {
 				//const searchValue = 'react';
 				const response = await fetch(
-					`http://hn.algolia.com/api/v1/search?query=${searchValue}`
+					`http://hn.algolia.com/api/v1/search?query=${searchValue}` //searchValue is any value searched
 				);
 				if (response.ok) {
 					const jsonResponse = await response.json();
-					console.log('test', jsonResponse);
+					console.log('response', jsonResponse);
 					//console.log from json
 					return setNews(jsonResponse.hits);
 				}
@@ -34,19 +37,24 @@ function App() {
 	}, [searchValue]);
 
 	//goal: setSearchValue to input.value
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log('target', e.target);
-		console.log('current searchvalue', searchValue);
-		setSearchValue(e.target.searchbar.value);
-		//alert('hi there');
+	const handleSubmit = (searchWord) =>
+	{
+		console.log( "handleSubmit",searchWord)
+		setSearchValue(searchWord)
+	// 	event.preventDefault();
+	// 	console.log('target', event.target);
+	// 	console.log( 'current searchvalue', searchValue );
+	// 	//connecting searchbar with inputfield
+	// 	setSearchValue(event.target.searchbar.value);
+	// 	//alert('hi there');
+		
 	};
 
 	return (
 		<div className='App'>
 			<header className='App-header'>
 				<Header />
-				<List hits={news} handleSubmit={handleSubmit} />
+				<List hits={news} submit={(value)=>handleSubmit(value)} />
 			</header>
 		</div>
 	);
