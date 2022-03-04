@@ -16,7 +16,7 @@ function List({ hits, submit }) {
 	const handleOnSubmit = ( event ) =>
 	{
 		event.preventDefault();
-		// console.log( "handleOnSubmit", event )
+	   console.log("handleOnSubmit", event )
 	    const searchWord = event.target[0].value;
 		submit(searchWord);
 	};
@@ -34,14 +34,15 @@ function List({ hits, submit }) {
 					<input
 						className='searchInput'
 						type='text'
-						placeholder=' Enter '
+						placeholder='Enter'
 						name='searchbar'
 						//onChange={handleSubmit}
 					/>
-					<button  className='button'type='submit'>Submit</button>
-					<div className='SearchIcon'>
+						<div className='SearchIcon'>
 						<SearchIcon />
 					</div>
+					<button  className='button'type='submit'>Submit</button>
+				
 							
 					
 				</form>
